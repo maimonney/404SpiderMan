@@ -1,0 +1,355 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTRUCTURA*/
+
+body{
+    background-image: url("../img/fondo_pc.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+}
+
+h1{
+    font-size: 200px;
+    z-index: 99999;
+    margin-top: 100px;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+section{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    font-size: 25px;
+}
+
+.pie_copy{
+    text-align: center;
+    margin-top: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.img_error{
+    display: flex;
+    justify-content: center;
+    margin-top: -130px;
+}
+
+/*ANIMACION/IAGENES*/
+
+.imagenes{
+    position: relative;
+}
+
+.animacion_spider{
+    position: absolute;
+    margin-top: -220px;
+    animation: animacion_spider 10s infinite;
+    z-index: 999999;
+}
+
+@keyframes animacion_spider{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.animacion_portal{
+    margin-top: 90%;
+    margin-bottom: 0;
+    animation: animacion_portal 10s infinite;
+    z-index: 9999;
+}
+
+@keyframes animacion_portal{
+    0%{
+        transform: scale(1.3);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.3);
+    }
+}
+
+/*FORM*/
+form{
+    margin-top: 50px;
+}
+
+input{
+    background: rgba(255, 255, 255, 0.113);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 5000px;
+    box-shadow: 8px 7px 30px 10px rgba(0, 0, 0, .5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+    transition: all 0.2s ease-in-out;
+}
+
+input::placeholder{
+    color: #b0b0b0;
+}
+
+form p{
+    font-size: 20px;
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.ingreso_texto{
+    width: 300px;
+}
+
+.boton{
+    width: 200px;
+    margin-top: 10px;
+}
+
+.boton:hover{
+    background-color: rgb(229, 100, 100);
+    box-shadow: 0 0 10px rgb(229, 100, 100), 0 0 40px rgb(229, 100, 100), 0 0 80px rgb(229, 100, 100);
+    transition-delay: 1s;
+}
+
+/*MENÚ*/
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.lista_menu li{
+    display: inline-block;
+}
+
+.lista_menu a{
+    position: relative;
+    text-decoration: none;
+    font-family: 'Poppins',sans-serif;
+    color: #c5c5c5;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-right: 20px;
+}
+
+.lista_menu a:hover:after{
+    width: 100%;
+}
+
+.boton_menu,
+.logo{
+    z-index: 999999999;
+}
+
+.logo{
+    margin: 10px 0 0 30px;
+}
+
+.boton-abrir,
+.boton-cerrar {
+    display: inline-block; 
+	margin-right:30px;
+}
+
+.lista_menu{
+    list-style-type:none;
+	text-align:center;
+    margin-right: 40px;
+    transition: all .8s ease;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 800px){
+    body{
+    background-image: url("../img/fondo_tab.jpg");
+    }
+
+    h1{
+        font-size: 190px;
+        margin-top: 100px;
+    }
+
+    h2{
+        margin: 30px;
+    }
+
+    .formulario p{
+        margin-bottom: 30px;
+    }
+
+    .animacion_spider{
+        margin-top: -220px;
+        margin-left: 20px;
+    }
+
+    /*MENÚ*/
+    
+    .lista_menu {
+        max-height:0;
+        width: 100%;
+        overflow:hidden;
+        z-index: 9999999;
+        position: absolute;
+    }
+    
+    .lista_menu li{
+        display: block;
+    }
+    
+    .lista_menu a{
+        color: rgb(219, 219, 219);
+    }
+
+    .boton-cerrar{
+        display: none;
+    }
+
+    .menu:target .lista_menu {
+        background-color: rgba(21, 25, 82, 0.81);
+        padding: 16px;
+        padding-top: 200px;
+        padding-bottom: 140px;    
+        border: none;
+        border-radius: 0 0 30px 30px;
+        box-shadow: 4px 4px 60px rgba(0,0,0,1);
+        text-align: center;
+    } 
+
+    .menu:target .boton-cerrar {
+        display: inline-block;
+    }
+
+    .menu:target .boton-abrir {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 800px){
+    .boton-abrir,
+    .boton-cerrar{
+        display: none;
+    }
+
+    .lista_menu li{
+        display: inline-block;
+    }
+
+    .lista_menu a:after{
+        content: "";
+        position: absolute;
+        background-color: rgb(229, 100, 100);
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 1s;
+    }
+    
+    form p{
+        margin-bottom: 20px;
+    }
+
+    .lista_menu a:hover{
+        color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 600px){
+    body{
+        background-image: url("../img/fondo_cel.jpg");
+    }
+    
+    h1{
+        font-size: 120px;
+        margin-top: 10px;
+    }
+
+    .img_error{
+        margin-top: 5px;
+    }
+
+    .animacion_portal img{
+        width: 150px;
+    }
+
+    .animacion_portal{
+        margin-top: 150px;
+        margin-left: 10px;
+    }
+
+    .animacion_spider img{
+        width: 90px;
+    }
+
+    .animacion_spider{
+        margin-top: -90px;
+        margin-left: 40px;
+        animation: animacion_spider2 10s infinite;
+    }
+
+    @keyframes animacion_spider2{
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(2.2);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+
+    /*FORM*/
+
+    h2{
+        font-size: 30px;
+        margin: 20px;
+    }
+
+    .formulario{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    input{
+        margin: 15px;
+    }
+
+    .ingreso_texto{
+        width: 250px;
+    }
+
+    .formulario p{
+        margin-bottom: 30px;
+        width: 250px;
+        line-height: 1.5;
+    }
+
+}
